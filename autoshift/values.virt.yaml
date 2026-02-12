@@ -17,7 +17,7 @@
 # See docs/developer-guide.md for more details on label requirements.
 
 # Git repository configuration (for Git mode)
-autoshiftGitRepo: https://github.com/auto-shift/autoshiftv2.git
+autoshiftGitRepo: https://github.com/mmwillingham/autoshiftv2.git
 autoshiftGitBranchTag: main
 
 # Which hub clusterset this AutoShift instance manages
@@ -38,7 +38,7 @@ hubClusterSets:
       self-managed: 'true'
 
       # Required: OpenShift version for image mirroring and compatibility
-      openshift-version: '4.18.28'
+      openshift-version: '4.20'
 
       ### OpenShift GitOps (REQUIRED)
       # GitOps is required to deploy AutoShift itself
