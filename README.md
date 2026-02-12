@@ -201,7 +201,7 @@ For development or customization, install directly from the git repository:
 
     ```console
     export APP_NAME="autoshift"
-    export REPO_URL="https://github.com/auto-shift/autoshiftv2.git"
+    export REPO_URL="https://github.com/mmwillingham/autoshiftv2.git"
     export TARGET_REVISION="main"
     export VALUES_FILE="values.hub.yaml"
     export ARGO_PROJECT="default"
