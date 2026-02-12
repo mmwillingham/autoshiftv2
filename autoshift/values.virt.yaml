@@ -38,7 +38,7 @@ hubClusterSets:
       self-managed: 'true'
 
       # Required: OpenShift version for image mirroring and compatibility
-      openshift-version: '4.20'
+      openshift-version: '4.20.13'
 
       ### OpenShift GitOps (REQUIRED)
       # GitOps is required to deploy AutoShift itself
