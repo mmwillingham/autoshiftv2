@@ -54,14 +54,14 @@ See `autoshift/values.minimal.yaml` for a minimal configuration example that sho
 
 For production deployments, install from the OCI registry:
 
-1. Download the installation scripts from the [latest release](https://github.com/auto-shift/autoshiftv2/releases):
+1. Download the installation scripts from the [latest release](https://github.com/mmwillingham/autoshiftv2/releases):
 
    ```bash
    # Download and extract release artifacts
    VERSION=0.1.0  # Replace with desired version
-   curl -sL https://github.com/auto-shift/autoshiftv2/releases/download/v${VERSION}/INSTALL.md -O
-   curl -sL https://github.com/auto-shift/autoshiftv2/releases/download/v${VERSION}/install-bootstrap.sh -O
-   curl -sL https://github.com/auto-shift/autoshiftv2/releases/download/v${VERSION}/install-autoshift.sh -O
+   curl -sL https://github.com/mmwillingham/autoshiftv2/releases/download/v${VERSION}/INSTALL.md -O
+   curl -sL https://github.com/mmwillingham/autoshiftv2/releases/download/v${VERSION}/install-bootstrap.sh -O
+   curl -sL https://github.com/mmwillingham/autoshiftv2/releases/download/v${VERSION}/install-autoshift.sh -O
    chmod +x install-*.sh
    ```
 
@@ -279,7 +279,7 @@ autoshift:
 ```bash
 # Deploy in dry run mode - use the same installation command with dryRun override
 export APP_NAME="autoshift"
-export REPO_URL="https://github.com/auto-shift/autoshiftv2.git"
+export REPO_URL="https://github.com/mmwillingham/autoshiftv2.git"
 export TARGET_REVISION="main"
 export VALUES_FILE="values.hub.yaml"
 export ARGO_PROJECT="default"
