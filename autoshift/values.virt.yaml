@@ -71,8 +71,44 @@ hubClusterSets:
 #       # Add additional labels for managed cluster features
 
 # Optional: Exclude specific policies from deployment
-# excludePolicies:
+excludePolicies:
 #   - policy-name-to-exclude
+#   - advanced-cluster-security
+#   - ansible-automation-platform
+  - advanced-cluster-management
+#   - advanced-cluster-security
+#   - ansible-automation-platform
+#   - cluster-labels
+#   - cluster-observability
+#   - developer-hub
+#   - dev-spaces
+#   - disconnected-mirror 
+#   - gitops-dev
+#   - infra-nodes
+#   - kiali
+#   - local-storage
+#   - logging
+#   - loki
+#   - lvm
+#   - machine-health-checks
+#   - manual-remediations
+#   - master-nodes
+#   - metallb
+#   - nmstate
+#   - node-feature-discovery
+#   - openshift-compliance-operator
+#   - openshift-data-foundation
+#   - openshift-dns
+  - openshift-gitops
+#   - openshift-image-registry
+#   - openshift-pipelines
+  - openshift-virtualization
+#   - quay
+#   - servicemesh3
+#   - storage-nodes
+#   - tempo
+#   - trusted-artifact-signer
+#   - worker-nodes
 
 # Optional: Enable dry-run mode (policies in inform mode only)
 # autoshift:
