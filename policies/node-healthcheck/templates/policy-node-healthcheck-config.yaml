@@ -38,9 +38,6 @@ spec:
                     namespace: openshift-workload-availability
                   selector:
                     matchExpressions:
-                      - key: node-role.kubernetes.io/master
-                        operator: Exists
-                        values: []
                       - key: node-role.kubernetes.io/worker
                         operator: Exists
                         values: []
