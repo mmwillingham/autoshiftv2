@@ -93,7 +93,7 @@ excludePolicies:
 #  - advanced-cluster-management
   - advanced-cluster-security
   - ansible-automation-platform
-  - cluster-labels
+#  - cluster-labels
   - cluster-observability
   - developer-hub
   - dev-spaces
