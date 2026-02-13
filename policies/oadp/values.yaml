@@ -1,0 +1,43 @@
+# Default values for oadp
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+policy_namespace: open-cluster-policies
+oadp:
+  name: redhat-oadp-operator
+  namespace: openshift-adp
+  channel: stable
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  operatorGroupName: oadp-operator-group
+  targetNamespaces: # Target namespaces for namespace-scoped operators
+    - openshift-adp
+  
+# hubClusterSets:
+#   hub:
+#     labels:
+#       test1: 'test'
+# managedClusterSets:
+#   managed:
+#     labels:
+#       test4: 'test'
+
+### AutoShift Labels Documentation
+# The following labels can be set at the cluster or clusterset level to configure this policy:
+#
+# Enable/Disable:
+# oadp<bool>: 'true' or 'false' - Controls whether oadp is managed
+#
+# Configuration:
+# oadp-subscription-name<string>: Operator subscription name (default: 'redhat-oadp-operator')
+# oadp-channel<string>: Operator channel (default: 'stable')
+# oadp-version<string>: Specific operator version (CSV) to install (optional)
+# oadp-source<string>: Operator catalog source (default: 'redhat-operators')
+# oadp-source-namespace<string>: Catalog namespace (default: 'openshift-marketplace')
+#
+# Examples:
+# autoshift.io/oadp: 'true'
+# autoshift.io/oadp-subscription-name: 'redhat-oadp-operator'
+# autoshift.io/oadp-channel: 'stable'
+# autoshift.io/oadp-version: 'operator-name.v1.x.x'
+# autoshift.io/oadp-source: 'redhat-operators'
+# autoshift.io/oadp-source-namespace: 'openshift-marketplace'

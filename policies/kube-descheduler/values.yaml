@@ -1,0 +1,43 @@
+# Default values for kube-descheduler
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+policy_namespace: open-cluster-policies
+kubeDescheduler:
+  name: cluster-kube-descheduler-operator
+  namespace: openshift-kube-descheduler-operator
+  channel: stable
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  operatorGroupName: kube-descheduler-operator-group
+  targetNamespaces: # Target namespaces for namespace-scoped operators
+    - openshift-kube-descheduler-operator
+  
+# hubClusterSets:
+#   hub:
+#     labels:
+#       test1: 'test'
+# managedClusterSets:
+#   managed:
+#     labels:
+#       test4: 'test'
+
+### AutoShift Labels Documentation
+# The following labels can be set at the cluster or clusterset level to configure this policy:
+#
+# Enable/Disable:
+# kube-descheduler<bool>: 'true' or 'false' - Controls whether kube-descheduler is managed
+#
+# Configuration:
+# kube-descheduler-subscription-name<string>: Operator subscription name (default: 'cluster-kube-descheduler-operator')
+# kube-descheduler-channel<string>: Operator channel (default: 'stable')
+# kube-descheduler-version<string>: Specific operator version (CSV) to install (optional)
+# kube-descheduler-source<string>: Operator catalog source (default: 'redhat-operators')
+# kube-descheduler-source-namespace<string>: Catalog namespace (default: 'openshift-marketplace')
+#
+# Examples:
+# autoshift.io/kube-descheduler: 'true'
+# autoshift.io/kube-descheduler-subscription-name: 'cluster-kube-descheduler-operator'
+# autoshift.io/kube-descheduler-channel: 'stable'
+# autoshift.io/kube-descheduler-version: 'operator-name.v1.x.x'
+# autoshift.io/kube-descheduler-source: 'redhat-operators'
+# autoshift.io/kube-descheduler-source-namespace: 'openshift-marketplace'

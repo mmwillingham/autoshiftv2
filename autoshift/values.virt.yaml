@@ -34,6 +34,18 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### kube-descheduler
+      kube-descheduler: 'true'
+      kube-descheduler-subscription-name: cluster-kube-descheduler-operator
+      kube-descheduler-channel: stable
+      kube-descheduler-source: redhat-operators
+      kube-descheduler-source-namespace: openshift-marketplace
+      ### oadp
+      oadp: 'true'
+      oadp-subscription-name: redhat-oadp-operator
+      oadp-channel: stable
+      oadp-source: redhat-operators
+      oadp-source-namespace: openshift-marketplace
       # Required: Indicates this is a self-managed hub cluster
       self-managed: 'true'
 
