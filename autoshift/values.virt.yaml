@@ -35,6 +35,12 @@ hubClusterSets:
   hub:
     labels:
       ### kube-descheduler
+      kube-descheduler: 'true'
+      kube-descheduler-subscription-name: cluster-kube-descheduler-operator
+      kube-descheduler-channel: stable
+      kube-descheduler-source: redhat-operators
+      kube-descheduler-source-namespace: openshift-marketplace
+      ### kube-descheduler
       #kube-descheduler: 'true'
       #kube-descheduler-subscription-name: cluster-kube-descheduler-operator
       #kube-descheduler-channel: stable
