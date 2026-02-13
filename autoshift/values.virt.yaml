@@ -40,12 +40,22 @@ hubClusterSets:
       kube-descheduler-channel: stable
       kube-descheduler-source: redhat-operators
       kube-descheduler-source-namespace: openshift-marketplace
+      
       ### oadp
       oadp: 'true'
       oadp-subscription-name: redhat-oadp-operator
       oadp-channel: stable
       oadp-source: redhat-operators
       oadp-source-namespace: openshift-marketplace
+      
+      # OpenShift Virtualization
+      virt: 'true'
+      virt-channel: stable
+      virt-subscription-name: kubevirt-hyperconverged
+        # virt-version: kubevirt-hyperconverged-operator.v4.20.3
+      virt-source: redhat-operators
+      virt-source-namespace: openshift-marketplace
+      
       # Required: Indicates this is a self-managed hub cluster
       self-managed: 'true'
 
@@ -66,13 +76,6 @@ hubClusterSets:
       acm-channel: release-2.15
       acm-source: redhat-operators
       acm-source-namespace: openshift-marketplace
-
-      # OpenShift Virtualization
-      virt: 'true'
-      virt-channel: stable
-        # virt-version: kubevirt-hyperconverged-operator.v4.20.3
-      virt-source: redhat-operators
-      virt-source-namespace: openshift-marketplace
 
 # Optional: Managed (spoke) cluster sets
 # Uncomment and configure if you have managed clusters
