@@ -34,12 +34,7 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
-      ### mtv
-      mtv: 'true'
-      mtv-subscription-name: mtv-operator
-      mtv-channel: stable
-      mtv-source: redhat-operators
-      mtv-source-namespace: openshift-marketplace
+
       ### node-maintenance
       node-maintenance: 'true'
       node-maintenance-subscription-name: node-maintenance-operator
