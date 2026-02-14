@@ -34,6 +34,12 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### node-maintenance
+      node-maintenance: 'true'
+      node-maintenance-subscription-name: node-maintenance-operator
+      node-maintenance-channel: stable
+      node-maintenance-source: redhat-operators
+      node-maintenance-source-namespace: openshift-marketplace
       ### node-healthcheck
       node-healthcheck: 'true'
       node-healthcheck-subscription-name: node-healthcheck-operator
