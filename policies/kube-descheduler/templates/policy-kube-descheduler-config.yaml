@@ -35,6 +35,35 @@ spec:
                   mode: Predictive
                   profiles:
                     - KubeVirtRelieveAndMigrate
+                  profileCustomizations:
+                    devEnableEvictionsInBackground: true
+    
+# This requires PSI metrics. To check/verify it is enabled:
+# oc debug node/<worker-node-name>
+# Inside the debug shell:
+# chroot /host
+# cat /proc/pressure/cpu
+# To enable, apply this yaml
+#apiVersion: machineconfiguration.openshift.io/v1
+#kind: MachineConfig
+#metadata:
+#  labels:
+#    machineconfiguration.openshift.io/role: worker
+#  name: 06-worker-psi
+#spec:
+#  config:
+#    ignition:
+#      version: 3.2.0
+#  kernelArguments:
+#    - psi=1
+
+# You also must ensure VMs have this:
+#spec:
+#  template:
+#    metadata:
+#      annotations:
+#        descheduler.alpha.kubernetes.io/evict: "true"
+
 #                    - AffinityAndTaints
 #                    - TopologyAndDuplicates
 #                    - LifecycleAndUtilization
