@@ -24,10 +24,10 @@ spec:
           object-templates:
             - complianceType: musthave
               objectDefinition:
-                apiVersion: operator.openshift.io/v1
+                apiVersion: remediation.medik8s.io/v1alpha1
                 kind: NodeHealthCheck
                 metadata:
-                  name: cnv-nodehealthcheck
+                  name: nodehealthcheck-sandbox
                   namespace: openshift-workload-availability
                 spec:
                   minHealthy: 2
