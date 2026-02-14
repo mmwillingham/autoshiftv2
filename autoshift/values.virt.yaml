@@ -34,12 +34,6 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
-      ### far
-      far: 'true'
-      far-subscription-name: far-operator
-      far-channel: stable
-      far-source: redhat-operators
-      far-source-namespace: openshift-marketplace
 
       ### kube-descheduler
       kube-descheduler: 'true'
