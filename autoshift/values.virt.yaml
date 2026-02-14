@@ -36,7 +36,7 @@ hubClusterSets:
     labels:
       ### far
       far: 'true'
-      far-subscription-name: far-operator
+      far-subscription-name: fence-agents-remediation
       far-channel: stable
       far-source: redhat-operators
       far-source-namespace: openshift-marketplace
