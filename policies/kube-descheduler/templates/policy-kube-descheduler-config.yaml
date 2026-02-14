@@ -34,7 +34,17 @@ spec:
                   managementState: Managed
                   mode: Predictive
                   profiles:
-                    - AffinityAndTaints
+                    - KubeVirtRelieveAndMigrate
+#                    - AffinityAndTaints
+#                    - TopologyAndDuplicates
+#                    - LifecycleAndUtilization
+#                    - DevPreviewLongLifecycle
+#                    - LongLifecycle
+#                    - SoftTopologyAndDuplicates
+#                    - EvictPodsWithLocalStorage
+#                    - EvictPodsWithPVC
+#                    - CompactAndScale
+#                    - DevKubeVirtRelieveAndMigrate
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
