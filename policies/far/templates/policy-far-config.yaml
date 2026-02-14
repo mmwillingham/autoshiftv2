@@ -45,21 +45,6 @@ spec:
                         '--password': '<REDACTED>'
                         '--action': 'reboot'
                         '--ipport': '443'
-                  selector:
-                    matchExpressions:
-                      - key: node-role.kubernetes.io/master
-                        operator: Exists
-                        values: []
-                      - key: node-role.kubernetes.io/worker
-                        operator: Exists
-                        values: []
-                  unhealthyConditions:
-                    - type: Ready
-                      status: 'False'
-                      duration: 300s
-                    - type: Ready
-                      status: Unknown
-                      duration: 300s
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
