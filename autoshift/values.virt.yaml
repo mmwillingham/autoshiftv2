@@ -34,24 +34,12 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
-      ### node-healthcheck
-      node-healthcheck: 'true'
-      node-healthcheck-subscription-name: node-healthcheck-operator
-      node-healthcheck-channel: stable
-      node-healthcheck-source: redhat-operators
-      node-healthcheck-source-namespace: openshift-marketplace
       ### kube-descheduler
       kube-descheduler: 'true'
       kube-descheduler-subscription-name: cluster-kube-descheduler-operator
       kube-descheduler-channel: stable
       kube-descheduler-source: redhat-operators
       kube-descheduler-source-namespace: openshift-marketplace
-      ### kube-descheduler
-      #kube-descheduler: 'true'
-      #kube-descheduler-subscription-name: cluster-kube-descheduler-operator
-      #kube-descheduler-channel: stable
-      #kube-descheduler-source: redhat-operators
-      #kube-descheduler-source-namespace: openshift-marketplace
       
       ### oadp
       oadp: 'true'
