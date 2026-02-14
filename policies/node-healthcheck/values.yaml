@@ -9,8 +9,6 @@ nodeHealthcheck:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   operatorGroupName: node-healthcheck-operator-group
-  targetNamespaces: # Target namespaces for namespace-scoped operators
-    - openshift-workload-availability
   
 # hubClusterSets:
 #   hub:
