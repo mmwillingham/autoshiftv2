@@ -5,7 +5,7 @@ policy_namespace: open-cluster-policies
 mtv:
   name: mtv-operator
   namespace: openshift-mtv
-  channel: stable
+  channel: release-v2.10
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   operatorGroupName: openshift-mtv
@@ -29,7 +29,7 @@ mtv:
 #
 # Configuration:
 # mtv-subscription-name<string>: Operator subscription name (default: 'mtv-operator')
-# mtv-channel<string>: Operator channel (default: 'stable')
+# mtv-channel<string>: Operator channel (default: 'release-v2.10')
 # mtv-version<string>: Specific operator version (CSV) to install (optional)
 # mtv-source<string>: Operator catalog source (default: 'redhat-operators')
 # mtv-source-namespace<string>: Catalog namespace (default: 'openshift-marketplace')
@@ -37,7 +37,7 @@ mtv:
 # Examples:
 # autoshift.io/mtv: 'true'
 # autoshift.io/mtv-subscription-name: 'mtv-operator'
-# autoshift.io/mtv-channel: 'stable'
+# autoshift.io/mtv-channel: 'release-v2.10'
 # autoshift.io/mtv-version: 'operator-name.v1.x.x'
 # autoshift.io/mtv-source: 'redhat-operators'
 # autoshift.io/mtv-source-namespace: 'openshift-marketplace'

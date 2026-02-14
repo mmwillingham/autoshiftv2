@@ -25,7 +25,7 @@ hubClusterSets:
     labels:
       mtv: 'true'
       mtv-subscription-name: 'mtv-operator'
-      mtv-channel: 'stable'
+      mtv-channel: 'release-v2.10'
       mtv-source: 'redhat-operators'
       mtv-source-namespace: 'openshift-marketplace'
       # mtv-version: 'mtv-operator.v1.x.x'  # Optional: pin to specific CSV version
@@ -35,7 +35,7 @@ managedClusterSets:
     labels:
       mtv: 'true'
       mtv-subscription-name: 'mtv-operator'
-      mtv-channel: 'stable'
+      mtv-channel: 'release-v2.10'
       mtv-source: 'redhat-operators'
       mtv-source-namespace: 'openshift-marketplace'
       # mtv-version: 'mtv-operator.v1.x.x'  # Optional: pin to specific CSV version
