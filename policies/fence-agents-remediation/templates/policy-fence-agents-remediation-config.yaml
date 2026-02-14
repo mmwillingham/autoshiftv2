@@ -1,0 +1,103 @@
+{{- $policyName := "policy-fence-agents-remediation-config" }}
+{{- $placementName := "placement-policy-fence-agents-remediation-config" }}
+
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: {{ $policyName }}
+  namespace: {{ .Values.policy_namespace }}
+  annotations:
+    policy.open-cluster-management.io/standards: NIST SP 800-53
+    policy.open-cluster-management.io/categories: CM Configuration Management
+    policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: fence-agents-remediation-instance
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: fence-agents-remediation.medik8s.io/v1alpha1
+                kind: FenceAgentsRemediationTemplate
+                metadata:
+                name: fence-agents-remediation-template-sandbox
+                namespace: openshift-workload-availability
+                spec:
+                  template:
+                    spec:
+                      agent: fence_redfish
+                      nodeparameters:
+                        '--ip':
+                          worker01.example.com: '192.168.105.101'
+                          worker02.example.com: '192.168.105.102'
+                          worker03.example.com: '192.168.105.103'
+                      sharedparameters:
+                        '--systems-uri': '/redfish/v1/Systems/System.Embedded.1'
+                        '--ssl-insecure': ''
+                        '--username': ocp01
+                        '--password': '<REDACTED>'
+                        '--action': 'reboot'
+                        '--ipport': '443'
+                  selector:
+                    matchExpressions:
+                      - key: node-role.kubernetes.io/master
+                        operator: Exists
+                        values: []
+                      - key: node-role.kubernetes.io/worker
+                        operator: Exists
+                        values: []
+                  unhealthyConditions:
+                    - type: Ready
+                      status: 'False'
+                      duration: 300s
+                    - type: Ready
+                      status: Unknown
+                      duration: 300s
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: {{ $placementName }}
+  namespace: {{ .Values.policy_namespace }}
+spec:
+  clusterSets:
+  {{- range $clusterSet, $value := $.Values.hubClusterSets }}
+    - {{ $clusterSet }}
+  {{- end }}
+  {{- range $clusterSet, $value := $.Values.managedClusterSets }}
+    - {{ $clusterSet }}
+  {{- end }}
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: 'autoshift.io/fence-agents-remediation'
+              operator: In
+              values:
+              - 'true'
+  tolerations:
+    - key: cluster.open-cluster-management.io/unreachable
+      operator: Exists
+    - key: cluster.open-cluster-management.io/unavailable
+      operator: Exists
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: {{ $placementName }}
+  namespace: {{ .Values.policy_namespace }}
+placementRef:
+  name: {{ $placementName }}
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+subjects:
+  - name: {{ $policyName }}
+    apiGroup: policy.open-cluster-management.io
+    kind: Policy

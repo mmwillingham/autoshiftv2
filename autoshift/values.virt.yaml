@@ -34,6 +34,12 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### fence-agents-remediation
+      fence-agents-remediation: 'true'
+      fence-agents-remediation-subscription-name: fence-agents-remediation-operator
+      fence-agents-remediation-channel: stable
+      fence-agents-remediation-source: redhat-operators
+      fence-agents-remediation-source-namespace: openshift-marketplace
 
       ### kube-descheduler
       kube-descheduler: 'true'
