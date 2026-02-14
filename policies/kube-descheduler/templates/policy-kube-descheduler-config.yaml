@@ -38,18 +38,17 @@ spec:
                   profileCustomizations:
                     devEnableEvictionsInBackground: true
     
-# This requires PSI metrics. To check/verify it is enabled:
-# oc debug node/<worker-node-name>
-# Inside the debug shell:
-# chroot /host
-# cat /proc/pressure/cpu
-# To enable, apply this yaml
+# KubeVirtRelieveAndMigrate requires PSI metrics. To check/verify it is enabled:
+# oc debug node/<worker-node-name> -- chroot /host cat /proc/pressure/cpu
+
+# To enable, apply this yaml, with name prefixed with 99 to another mc doesn't overright with psi=0
+# 
 #apiVersion: machineconfiguration.openshift.io/v1
 #kind: MachineConfig
 #metadata:
 #  labels:
 #    machineconfiguration.openshift.io/role: worker
-#  name: 06-worker-psi
+#  name: 99-worker-psi-enable
 #spec:
 #  config:
 #    ignition:
