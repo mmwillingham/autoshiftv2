@@ -40,18 +40,21 @@ hubClusterSets:
       mtv-channel: release-v2.10
       mtv-source: redhat-operators
       mtv-source-namespace: openshift-marketplace
+
       ### node-maintenance
       node-maintenance: 'true'
       node-maintenance-subscription-name: node-maintenance-operator
       node-maintenance-channel: stable
       node-maintenance-source: redhat-operators
       node-maintenance-source-namespace: openshift-marketplace
+
       ### node-healthcheck
       node-healthcheck: 'true'
       node-healthcheck-subscription-name: node-healthcheck-operator
       node-healthcheck-channel: stable
       node-healthcheck-source: redhat-operators
       node-healthcheck-source-namespace: openshift-marketplace
+
       ### far
       far: 'true'
       far-subscription-name: fence-agents-remediation
@@ -102,8 +105,12 @@ hubClusterSets:
       acm-source: redhat-operators
       acm-source-namespace: openshift-marketplace
 
+managedClusterSets:
   virt:
     labels:
+      # Required: OpenShift version for image mirroring and compatibility
+      openshift-version: '4.20.13'
+
       ### Loki
       loki: 'true'
       loki-subscription-name: loki-operator
@@ -392,13 +399,6 @@ hubClusterSets:
       gitops-source: redhat-operators
       gitops-source-namespace: openshift-marketplace
 
-# Optional: Managed (spoke) cluster sets
-# Uncomment and configure if you have managed clusters
-# managedClusterSets:
-#   managed:
-#     labels:
-#       openshift-version: '4.18.28'
-#       # Add additional labels for managed cluster features
 
 # Optional: Exclude specific policies from deployment
 excludePolicies:
