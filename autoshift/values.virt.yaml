@@ -34,6 +34,76 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### mtv
+      mtv: 'true'
+      mtv-subscription-name: mtv-operator
+      mtv-channel: release-v2.10
+      mtv-source: redhat-operators
+      mtv-source-namespace: openshift-marketplace
+      ### node-maintenance
+      node-maintenance: 'true'
+      node-maintenance-subscription-name: node-maintenance-operator
+      node-maintenance-channel: stable
+      node-maintenance-source: redhat-operators
+      node-maintenance-source-namespace: openshift-marketplace
+      ### node-healthcheck
+      node-healthcheck: 'true'
+      node-healthcheck-subscription-name: node-healthcheck-operator
+      node-healthcheck-channel: stable
+      node-healthcheck-source: redhat-operators
+      node-healthcheck-source-namespace: openshift-marketplace
+      ### far
+      far: 'true'
+      far-subscription-name: fence-agents-remediation
+      far-channel: stable
+      far-source: redhat-operators
+      far-source-namespace: openshift-marketplace
+
+      ### kube-descheduler
+      kube-descheduler: 'true'
+      kube-descheduler-subscription-name: cluster-kube-descheduler-operator
+      kube-descheduler-channel: stable
+      kube-descheduler-source: redhat-operators
+      kube-descheduler-source-namespace: openshift-marketplace
+      
+      ### oadp
+      oadp: 'true'
+      oadp-subscription-name: redhat-oadp-operator
+      oadp-channel: stable
+      oadp-source: redhat-operators
+      oadp-source-namespace: openshift-marketplace
+      
+      # OpenShift Virtualization
+      virt: 'true'
+      virt-channel: stable
+      virt-subscription-name: kubevirt-hyperconverged
+        # virt-version: kubevirt-hyperconverged-operator.v4.20.3
+      virt-source: redhat-operators
+      virt-source-namespace: openshift-marketplace
+      
+      # Required: Indicates this is a self-managed hub cluster
+      self-managed: 'true'
+
+      # Required: OpenShift version for image mirroring and compatibility
+      openshift-version: '4.20.13'
+
+      ### OpenShift GitOps (REQUIRED)
+      # GitOps is required to deploy AutoShift itself
+      gitops: 'true'
+      gitops-subscription-name: openshift-gitops-operator
+      gitops-channel: gitops-1.19
+      gitops-source: redhat-operators
+      gitops-source-namespace: openshift-marketplace
+
+      ### Advanced Cluster Management (AUTOMATIC)
+      # ACM is automatically installed on all hub clustersets by policy
+      acm-subscription-name: advanced-cluster-management
+      acm-channel: release-2.15
+      acm-source: redhat-operators
+      acm-source-namespace: openshift-marketplace
+
+  virt:
+    labels:
       ### Loki
       loki: 'true'
       loki-subscription-name: loki-operator
@@ -309,7 +379,7 @@ hubClusterSets:
       virt-source-namespace: openshift-marketplace
       
       # Required: Indicates this is a self-managed hub cluster
-      self-managed: 'true'
+      self-managed: 'false'
 
       # Required: OpenShift version for image mirroring and compatibility
       openshift-version: '4.20.13'
@@ -321,13 +391,6 @@ hubClusterSets:
       gitops-channel: gitops-1.19
       gitops-source: redhat-operators
       gitops-source-namespace: openshift-marketplace
-
-      ### Advanced Cluster Management (AUTOMATIC)
-      # ACM is automatically installed on all hub clustersets by policy
-      acm-subscription-name: advanced-cluster-management
-      acm-channel: release-2.15
-      acm-source: redhat-operators
-      acm-source-namespace: openshift-marketplace
 
 # Optional: Managed (spoke) cluster sets
 # Uncomment and configure if you have managed clusters
@@ -342,7 +405,7 @@ excludePolicies:
 #   - policy-name-to-exclude
   - advanced-cluster-security
   - ansible-automation-platform
-#  - advanced-cluster-management
+  - advanced-cluster-management
   - advanced-cluster-security
   - ansible-automation-platform
 #  - cluster-labels
