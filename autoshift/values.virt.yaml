@@ -213,6 +213,27 @@ hubClusterSets:
       # === Legacy File-Based (deprecated) ===
       # nmstate-nncp-{name}: Filename in policies/nmstate/files/
 
+
+      ### MetalLB
+      metallb: 'true'
+      metallb-subscription-name: metallb-operator
+      # metallb-version: 'metallb-operator.v4.18.0-202509240837'
+      metallb-source: redhat-operators
+      metallb-source-namespace: openshift-marketplace
+      metallb-channel: stable
+      metallb-quota: 'false'
+      # Set your quota if metallb-quota is enabled
+      metallb-quota-cpu: ''
+      metallb-quota-memory:
+      # Specify the names of your IPPool files here
+      metallb-ippool-1: ''
+      #Specify your L2 Advertisement files here
+      metallb-l2-1: ''
+      # Specify the names of your BGP Advertisement files here
+      metallb-bgp-1: ''
+      # Specify the names of your Peer files here
+      metallb-peer-1: ''
+
       ### mtv
       mtv: 'true'
       mtv-subscription-name: mtv-operator
@@ -313,7 +334,7 @@ excludePolicies:
   - machine-health-checks
   - manual-remediations
   - master-nodes
-  - metallb
+#  - metallb
 #  - nmstate
   - node-feature-discovery
   - openshift-compliance-operator
