@@ -35,7 +35,7 @@ hubClusterSets:
   hub:
     labels:
       ### Loki
-      loki: 'false'
+      loki: 'true'
       loki-subscription-name: loki-operator
       # loki-version: 'loki-operator.v6.3.0'
       loki-channel: stable-6.4
@@ -44,15 +44,17 @@ hubClusterSets:
       loki-size: 1x.extra-small
       loki-storageclass: gp3-csi
       loki-lokistack-name: logging-lokistack
+
       ### OpenShift Logging
-      logging: 'false'
+      logging: 'true'
       logging-subscription-name: cluster-logging
       # logging-version: 'cluster-logging.v6.3.0'
       logging-channel: stable-6.4
       logging-source: redhat-operators
       logging-source-namespace: openshift-marketplace
+
       ### Cluster Observability Operator
-      coo: 'false'
+      coo: 'true'
       coo-subscription-name: cluster-observability-operator
       # coo-version: 'cluster-observability-operator.v0.4.0'
       coo-channel: stable
