@@ -386,7 +386,7 @@ managedClusterSets:
       virt-source-namespace: openshift-marketplace
       
       # Required: Indicates this is a self-managed hub cluster
-      self-managed: 'false'
+      #self-managed: 'false'
 
       # Required: OpenShift version for image mirroring and compatibility
       openshift-version: '4.20.13'
