@@ -34,6 +34,30 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### Loki
+      loki: 'false'
+      loki-subscription-name: loki-operator
+      # loki-version: 'loki-operator.v6.3.0'
+      loki-channel: stable-6.4
+      loki-source: redhat-operators
+      loki-source-namespace: openshift-marketplace
+      loki-size: 1x.extra-small
+      loki-storageclass: gp3-csi
+      loki-lokistack-name: logging-lokistack
+      ### OpenShift Logging
+      logging: 'false'
+      logging-subscription-name: cluster-logging
+      # logging-version: 'cluster-logging.v6.3.0'
+      logging-channel: stable-6.4
+      logging-source: redhat-operators
+      logging-source-namespace: openshift-marketplace
+      ### Cluster Observability Operator
+      coo: 'false'
+      coo-subscription-name: cluster-observability-operator
+      # coo-version: 'cluster-observability-operator.v0.4.0'
+      coo-channel: stable
+      coo-source: redhat-operators
+      coo-source-namespace: openshift-marketplace
 
       ### Kubernetes NMState Operator
       nmstate: 'true'
@@ -320,7 +344,7 @@ excludePolicies:
   - advanced-cluster-security
   - ansible-automation-platform
 #  - cluster-labels
-  - cluster-observability
+#  - cluster-observability
   - developer-hub
   - dev-spaces
   - disconnected-mirror 
@@ -328,8 +352,8 @@ excludePolicies:
   - infra-nodes
   - kiali
   - local-storage
-  - logging
-  - loki
+#  - logging
+#  - loki
   - lvm
   - machine-health-checks
   - manual-remediations
