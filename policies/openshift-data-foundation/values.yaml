@@ -37,7 +37,7 @@ odf:
 # odf-source-namespace<String>: Catalog namespace (default: 'openshift-marketplace')
 #
 # Storage Mode:
-odf-multi-cloud-gateway<String>: 'standalone' or 'standard' - Standalone installs only NooBaa, standard installs full ODF
+# odf-multi-cloud-gateway<String>: 'standalone' or 'standard' - Standalone installs only NooBaa, standard installs full ODF
 #
 # NooBaa Configuration:
 # odf-noobaa-pvpool<bool>: 'true' - Use PV pool for storage (not recommended for cloud providers)
