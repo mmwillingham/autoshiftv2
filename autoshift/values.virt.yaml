@@ -405,7 +405,7 @@ excludePolicies:
 #   - policy-name-to-exclude
   - advanced-cluster-security
   - ansible-automation-platform
-  - advanced-cluster-management
+#  - advanced-cluster-management
   - advanced-cluster-security
   - ansible-automation-platform
 #  - cluster-labels
