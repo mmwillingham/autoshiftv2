@@ -334,7 +334,6 @@ managedClusterSets:
       # === Legacy File-Based (deprecated) ===
       # nmstate-nncp-{name}: Filename in policies/nmstate/files/
 
-
       ### MetalLB
       metallb: 'true'
       metallb-subscription-name: metallb-operator
@@ -368,12 +367,14 @@ managedClusterSets:
       node-maintenance-channel: stable
       node-maintenance-source: redhat-operators
       node-maintenance-source-namespace: openshift-marketplace
+      
       ### node-healthcheck
       node-healthcheck: 'true'
       node-healthcheck-subscription-name: node-healthcheck-operator
       node-healthcheck-channel: stable
       node-healthcheck-source: redhat-operators
       node-healthcheck-source-namespace: openshift-marketplace
+      
       ### far
       far: 'true'
       far-subscription-name: fence-agents-remediation
@@ -428,11 +429,11 @@ managedClusterSets:
 
       ### OpenShift GitOps (REQUIRED)
       # GitOps is required to deploy AutoShift itself
-      gitops: 'true'
-      gitops-subscription-name: openshift-gitops-operator
-      gitops-channel: gitops-1.19
-      gitops-source: redhat-operators
-      gitops-source-namespace: openshift-marketplace
+      #       gitops: 'true'
+      #       gitops-subscription-name: openshift-gitops-operator
+      #       gitops-channel: gitops-1.19
+      #       gitops-source: redhat-operators
+      #       gitops-source-namespace: openshift-marketplace
 
 
 # Optional: Exclude specific policies from deployment
