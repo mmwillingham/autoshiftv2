@@ -403,8 +403,6 @@ managedClusterSets:
 # Optional: Exclude specific policies from deployment
 excludePolicies:
 #   - policy-name-to-exclude
-  - advanced-cluster-security
-  - ansible-automation-platform
 #  - advanced-cluster-management
   - advanced-cluster-security
   - ansible-automation-platform
@@ -427,7 +425,7 @@ excludePolicies:
 #  - nmstate
   - node-feature-discovery
   - openshift-compliance-operator
-  - openshift-data-foundation
+#  - openshift-data-foundation
   - openshift-dns
 #   - openshift-gitops
   - openshift-image-registry
