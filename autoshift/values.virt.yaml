@@ -71,6 +71,24 @@ hubClusterSets:
       kube-descheduler-channel: stable
       kube-descheduler-source: redhat-operators
       kube-descheduler-source-namespace: openshift-marketplace
+
+      ### OpenShift Data Foundation
+      odf: 'true'
+      odf-subscription-name: odf-operator
+      # odf-version: 'odf-operator.v4.18.11-rhodf'
+      odf-multi-cloud-gateway: standalone
+      odf-noobaa-pvpool: ''
+      odf-noobaa-store-size: ''
+      odf-noobaa-store-num-volumes: ''
+      odf-ocs-storage-class-name: 'gp3-csi'
+      odf-ocs-storage-size: '2Ti'
+      odf-ocs-storage-count: '2'
+      odf-ocs-storage-replicas: '3'
+      odf-resource-profile: balanced
+      odf-channel: stable-4.20
+      odf-source: redhat-operators
+      odf-source-namespace: openshift-marketplace
+
       
       ### oadp
       oadp: 'true'
@@ -322,7 +340,6 @@ managedClusterSets:
       # === Legacy File-Based (deprecated) ===
       # nmstate-nncp-{name}: Filename in policies/nmstate/files/
 
-
       ### MetalLB
       metallb: 'true'
       metallb-subscription-name: metallb-operator
@@ -356,12 +373,14 @@ managedClusterSets:
       node-maintenance-channel: stable
       node-maintenance-source: redhat-operators
       node-maintenance-source-namespace: openshift-marketplace
+      
       ### node-healthcheck
       node-healthcheck: 'true'
       node-healthcheck-subscription-name: node-healthcheck-operator
       node-healthcheck-channel: stable
       node-healthcheck-source: redhat-operators
       node-healthcheck-source-namespace: openshift-marketplace
+      
       ### far
       far: 'true'
       far-subscription-name: fence-agents-remediation
@@ -382,6 +401,23 @@ managedClusterSets:
       oadp-channel: stable
       oadp-source: redhat-operators
       oadp-source-namespace: openshift-marketplace
+
+      ### OpenShift Data Foundation
+      odf: 'true'
+      odf-subscription-name: odf-operator
+      # odf-version: 'odf-operator.v4.18.11-rhodf'
+      odf-multi-cloud-gateway: standalone
+      odf-noobaa-pvpool: ''
+      odf-noobaa-store-size: ''
+      odf-noobaa-store-num-volumes: ''
+      odf-ocs-storage-class-name: 'gp3-csi'
+      odf-ocs-storage-size: '2Ti'
+      odf-ocs-storage-count: '2'
+      odf-ocs-storage-replicas: '3'
+      odf-resource-profile: balanced
+      odf-channel: stable-4.20
+      odf-source: redhat-operators
+      odf-source-namespace: openshift-marketplace
       
       # OpenShift Virtualization
       virt: 'true'
@@ -399,52 +435,50 @@ managedClusterSets:
 
       ### OpenShift GitOps (REQUIRED)
       # GitOps is required to deploy AutoShift itself
-      gitops: 'true'
-      gitops-subscription-name: openshift-gitops-operator
-      gitops-channel: gitops-1.19
-      gitops-source: redhat-operators
-      gitops-source-namespace: openshift-marketplace
+      #       gitops: 'true'
+      #       gitops-subscription-name: openshift-gitops-operator
+      #       gitops-channel: gitops-1.19
+      #       gitops-source: redhat-operators
+      #       gitops-source-namespace: openshift-marketplace
 
 
 # Optional: Exclude specific policies from deployment
 excludePolicies:
 #   - policy-name-to-exclude
-  - advanced-cluster-security
-  - ansible-automation-platform
-  - advanced-cluster-management
-  - advanced-cluster-security
-  - ansible-automation-platform
+#  - advanced-cluster-management
+##  - advanced-cluster-security
+##  - ansible-automation-platform
 #  - cluster-labels
 #  - cluster-observability
-  - developer-hub
-  - dev-spaces
-  - disconnected-mirror 
-  - gitops-dev
-  - infra-nodes
-  - kiali
-  - local-storage
+##  - developer-hub
+##  - dev-spaces
+##  - disconnected-mirror 
+##  - gitops-dev
+##  - infra-nodes
+##  - kiali
+##  - local-storage
 #  - logging
 #  - loki
-  - lvm
-  - machine-health-checks
-  - manual-remediations
-  - master-nodes
+##  - lvm
+##  - machine-health-checks
+##  - manual-remediations
+##  - master-nodes
 #  - metallb
 #  - nmstate
-  - node-feature-discovery
-  - openshift-compliance-operator
-  - openshift-data-foundation
-  - openshift-dns
+##  - node-feature-discovery
+##  - openshift-compliance-operator
+#  - openshift-data-foundation
+##  - openshift-dns
 #   - openshift-gitops
-  - openshift-image-registry
-  - openshift-pipelines
+##  - openshift-image-registry
+##  - openshift-pipelines
 #    - openshift-virtualization
-  - quay
-  - servicemesh3
-  - storage-nodes
-  - tempo
-  - trusted-artifact-signer
-  - worker-nodes
+##  - quay
+##  - servicemesh3
+##  - storage-nodes
+##  - tempo
+##  - trusted-artifact-signer
+##  - worker-nodes
 
 # Optional: Enable dry-run mode (policies in inform mode only)
 # autoshift:
