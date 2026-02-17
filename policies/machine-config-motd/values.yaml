@@ -1,0 +1,36 @@
+# Default values for machine-config-motd
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+policy_namespace: open-cluster-policies
+machineConfigMotd:
+  name: machine-config-motd
+  
+# hubClusterSets:
+#   hub:
+#     labels:
+#       test1: 'test'
+# managedClusterSets:
+#   managed:
+#     labels:
+#       test4: 'test'
+
+### AutoShift Labels Documentation
+# The following labels can be set at the cluster or clusterset level to configure this policy:
+#
+# Enable/Disable:
+# machine-config-motd<bool>: 'true' or 'false' - Controls whether machine-config-motd is managed
+#
+# Configuration:
+# machine-config-motd-subscription-name<string>: Operator subscription name (default: 'machine-config-motd')
+# machine-config-motd-channel<string>: Operator channel (default: 'stable')
+# machine-config-motd-version<string>: Specific operator version (CSV) to install (optional)
+# machine-config-motd-source<string>: Operator catalog source (default: 'redhat-operators')
+# machine-config-motd-source-namespace<string>: Catalog namespace (default: 'openshift-marketplace')
+#
+# Examples:
+# autoshift.io/machine-config-motd: 'true'
+# autoshift.io/machine-config-motd-subscription-name: 'machine-config-motd'
+# autoshift.io/machine-config-motd-channel: 'stable'
+# autoshift.io/machine-config-motd-version: 'operator-name.v1.x.x'
+# autoshift.io/machine-config-motd-source: 'redhat-operators'
+# autoshift.io/machine-config-motd-source-namespace: 'openshift-marketplace'

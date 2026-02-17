@@ -34,6 +34,9 @@ selfManagedHubSet: hub
 hubClusterSets:
   hub:
     labels:
+      ### machine-config-motd
+      machine-config-motd: 'true'
+
       ### mtv
       mtv: 'true'
       mtv-subscription-name: mtv-operator
@@ -110,6 +113,9 @@ managedClusterSets:
     labels:
       # Required: OpenShift version for image mirroring and compatibility
       openshift-version: '4.20.13'
+
+      ### machine-config-motd
+      machine-config-motd: 'true'
 
       ### Loki
       loki: 'true'

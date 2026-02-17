@@ -1,0 +1,84 @@
+{{- $policyName := "policy-machine-config-motd-config" }}
+{{- $placementName := "placement-policy-machine-config-motd-config" }}
+
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: {{ $policyName }}
+  namespace: {{ .Values.policy_namespace }}
+  annotations:
+    policy.open-cluster-management.io/standards: NIST SP 800-53
+    policy.open-cluster-management.io/categories: CM Configuration Management
+    policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: machine-config-motd
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: machineconfiguration.openshift.io/v1
+                kind: MachineConfig
+                metadata:
+                  labels:
+                    machineconfiguration.openshift.io/role: worker
+                  name: 99-worker-custom-motd
+                spec:
+                  config:
+                    ignition:
+                      version: 3.2.0
+                    storage:
+                      files:
+                      - contents:
+                          source: data:,Welcome%20to%20the%20Cluster%20Nodes%21%0A
+                        mode: 420
+                        overwrite: true
+                        path: /etc/motd
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: {{ $placementName }}
+  namespace: {{ .Values.policy_namespace }}
+spec:
+  clusterSets:
+  {{- range $clusterSet, $value := $.Values.hubClusterSets }}
+    - {{ $clusterSet }}
+  {{- end }}
+  {{- range $clusterSet, $value := $.Values.managedClusterSets }}
+    - {{ $clusterSet }}
+  {{- end }}
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: 'autoshift.io/machine-config-motd'
+              operator: In
+              values:
+              - 'true'
+  tolerations:
+    - key: cluster.open-cluster-management.io/unreachable
+      operator: Exists
+    - key: cluster.open-cluster-management.io/unavailable
+      operator: Exists
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: {{ $placementName }}
+  namespace: {{ .Values.policy_namespace }}
+placementRef:
+  name: {{ $placementName }}
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+subjects:
+  - name: {{ $policyName }}
+    apiGroup: policy.open-cluster-management.io
+    kind: Policy
