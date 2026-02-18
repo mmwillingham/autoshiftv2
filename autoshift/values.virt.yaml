@@ -441,6 +441,10 @@ managedClusterSets:
       #       gitops-source: redhat-operators
       #       gitops-source-namespace: openshift-marketplace
 
+# managedClusterSets:
+#   managed:
+#     labels:
+#       test4: 'test'
 
 # Optional: Exclude specific policies from deployment
 excludePolicies:
