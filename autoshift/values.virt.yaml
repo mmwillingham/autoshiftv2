@@ -58,7 +58,7 @@ hubClusterSets:
       node-healthcheck-source: redhat-operators
       node-healthcheck-source-namespace: openshift-marketplace
 
-      ### far
+      ### far (fence agent remediation operator)
       far: 'true'
       far-subscription-name: fence-agents-remediation
       far-channel: stable
