@@ -37,7 +37,7 @@ hubClusterSets:
       ### machine-config-motd
       machine-config-motd: 'true'
 
-      ### mtv
+      ### mtv (Migration Toolkit for Virtualization)
       mtv: 'true'
       mtv-subscription-name: mtv-operator
       mtv-channel: release-v2.10
@@ -58,7 +58,7 @@ hubClusterSets:
       node-healthcheck-source: redhat-operators
       node-healthcheck-source-namespace: openshift-marketplace
 
-      ### far (fence agent remediation operator)
+      ### far (Fence Agent Remediation Operator)
       far: 'true'
       far-subscription-name: fence-agents-remediation
       far-channel: stable
